@@ -1,0 +1,25 @@
+{
+  "llm": {
+    "provider": "deepseek",
+    "api_key": "在这里填你的 API Key",
+    "model": "deepseek-v4-flash",
+    "base_url": "https://api.deepseek.com/v1"
+  },
+  "browser": {
+    "headless": false,
+    "profile_dir": "./chrome-profile",
+    "slow_mo": 100,
+    "timeout": 30000,
+    "cdp_url": "http://localhost:9222"
+  },
+  "agent": {
+    "max_turns": 20,
+    "temperature": 0.2,
+    "max_tokens": 2000
+  },
+  "matching": {
+    "rule_confidence": 0.8,
+    "semantic_confidence": 0.6,
+    "llm_fallback_threshold": 0.5
+  }
+}

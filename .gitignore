@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+*.pyc
+
+# 含 API Key，绝不入库（用 config.example.json 作模板）
+config.json
+
+# Chrome 用户数据目录：含登录 Cookie，入库等于公开登录态
+chrome-profile/
+
+# 含身份证号/住址/家人联系方式等个人信息
+data/profile.json
+
+# IDE
+.idea/
+.vscode/
+
+logs/
+*.log
