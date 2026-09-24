@@ -1,7 +1,5 @@
 """Agent 的工具集：定义（给模型看的说明书）+ 执行器（真正干活）。
 
-对应 TS 版的 engine/agentFill.ts 里的 FILL_TOOLS 与 executeTool。
-
 ⭐ 核心分工：**模型决定调哪个工具，这里负责真正执行。**
 模型输出 tool_calls（工具名 + 参数），我们按名字找到函数执行，把结果回填。
 """

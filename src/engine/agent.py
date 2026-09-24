@@ -1,7 +1,5 @@
 """Agent 主循环（Function Calling）。
 
-对应 TS 版的 engine/agentFill.ts —— 两版结构完全一致。
-
 与 Workflow 的区别：
     Workflow（workflow.py）= 步骤写死：加载→扫描→匹配→填充→统计，快、省、可控
     Agent（本文件）        = 只给目标，模型自主决定调哪个工具、调几次、何时停
@@ -125,7 +123,7 @@ def run_workflow(
     llm_matcher: Callable[[str, str], MatchResult] | None = None,
     on_progress: Callable[[str, int], None] | None = None,
 ) -> dict[str, Any]:
-    """固定五步流程 —— 与 TS 版的 fillOrchestrator 对应。
+    """固定五步流程。
 
     大部分表单结构规整，这条路几步就完事，且只有拿不准的字段才调模型。
     和 Agent 模式并存，让用户按场景选。
@@ -137,7 +135,7 @@ def run_workflow(
         if on_progress:
             on_progress(msg, pct)
 
-    # ① 扫描（用户数据已由调用方传入，等价于 TS 版的 loadUserData）
+    # ① 扫描（用户数据已由调用方传入）
     progress("正在扫描页面表单…", 20)
     fields = scan_fields(page)
 

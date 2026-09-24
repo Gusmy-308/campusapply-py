@@ -1,8 +1,5 @@
 """三级匹配引擎：规则匹配 → 语义匹配 → LLM 兜底。
 
-对应 TS 版的 engine/matchingEngine.ts。
-**算法逐行照搬，两版行为一致** —— 这样"我做了两个版本"才讲得通。
-
 为什么要分级（而不是全走大模型）：
   · 规则匹配：本地查表，毫秒级、零成本，能覆盖约 80% 的字段
   · 语义匹配：字符重叠率兜住规则没覆盖的近义写法，仍然零成本
@@ -47,7 +44,7 @@ class MatchResult:
 
 @dataclass
 class UserData:
-    """用户信息（对应 TS 版的 UserDataContext）。"""
+    """用户信息。"""
 
     personal_info: dict[str, Any] = field(default_factory=dict)
     educations: list[dict[str, Any]] = field(default_factory=list)
@@ -212,7 +209,7 @@ def _with_option(r: MatchResult, options: list[str] | None) -> MatchResult:
 
 
 def pick_option(value: str, options: list[str]) -> str | None:
-    """把值对齐到下拉框的某个选项（等价于 TS 版 findBestOption）。"""
+    """把值对齐到下拉框的某个选项。"""
     v = (value or "").strip().lower()
     if not v:
         return None

@@ -1,6 +1,8 @@
-"""字段映射规则表 —— 从 TS 版 fieldMappingRules.ts 自动搬运，保证两版口径一致。
+"""字段映射规则表。
 
-共 50 条规则、408 个关键词。
+共 57 条规则、435 个关键词，按 category 分为 basic / education /
+experience / intention / skill / other 六类，供三级匹配的第一级查表使用。
+
 如需新增字段，直接往列表里加 dict 即可。
 """
 

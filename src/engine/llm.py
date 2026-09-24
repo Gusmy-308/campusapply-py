@@ -1,6 +1,5 @@
 """LLM 客户端：统一封装各家厂商（都是 OpenAI 兼容格式）。
 
-对应 TS 版的 engine/llmService.ts。
 关键点：tool_calls 归一化成 ToolCall（参数从 JSON 字符串解析成 dict），
 解析失败不抛异常 —— 交给工具执行层把错误回填给模型重试。
 """

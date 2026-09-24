@@ -1,8 +1,7 @@
 """页面表单字段扫描。
 
-对应 TS 版的 content/index.ts   的 SCAN_FORM_FIELDS 分支。
-做法：往页面里注入一段 JS，在浏览器上下文里直接读 DOM
-（Playwright 的 page.evaluate 等价于扩展的 content script）。
+做法：往页面里注入一段 JS，在浏览器上下文里直接读 DOM ——
+这样拿到的是框架渲染之后的真实 DOM，而不是 HTML 源码里的空壳。
 """
 
 from __future__ import annotations
@@ -14,8 +13,7 @@ from typing import Any
 from playwright.sync_api import Page
 
 # 注入到页面里执行的扫描脚本。
-# 与 TS 版保持同一套口径：同一批选择器、同一种 label 提取策略、
-# 同样过滤掉隐藏/禁用/按钮类元素。
+# 同一批选择器、同一种 label 提取策略，过滤掉隐藏 / 禁用 / 按钮类元素。
 _SCAN_JS = r"""
 () => {
   const VISIBLE = (el) => {

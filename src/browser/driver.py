@@ -11,9 +11,6 @@
      ⚠️ 复用的只是「登录态」（user-data-dir 里的 cookie/存储），
         **不是「浏览器身份」**。登录态能过表单校验，过不了 WAF —— 两回事。
         遇到瑞数会拿到 412 + 空 body。
-
-对应 TS 版的「扩展天然跑在你自己的浏览器里」：扩展本来就是附着，
-Python 版靠 connect_over_cdp 达到同样效果。
 """
 
 from __future__ import annotations

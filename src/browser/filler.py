@@ -1,6 +1,5 @@
 """把值填进页面字段。
 
-对应 TS 版的 content/index.ts 的 EXECUTE_FILL 分支。
 **核心难点：现代前端框架是「受控组件」** —— 直接改 el.value 不触发 React/Vue
 的状态更新，表面上填进去了，一提交就没了。
 解法：用原型上的原生 setter 赋值，再手动派发 input/change 事件。

@@ -46,7 +46,7 @@ class AgentConfig:
 
 @dataclass
 class MatchingConfig:
-    """三级匹配阈值 —— 与 TS 版保持同一口径，两个版本行为一致。"""
+    """三级匹配各级的置信度阈值。"""
 
     rule_confidence: float = 0.8
     semantic_confidence: float = 0.6
